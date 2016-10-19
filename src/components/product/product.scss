@@ -1,0 +1,38 @@
+@import "../../../node_modules/dress-code/dist/sass/dress-code";
+
+.menu__link {
+  margin-right: $dc-space150;
+  margin-top: 0.4rem;
+  color: $dc-text-color;
+  line-height: 3.6rem;
+  display: block;
+  cursor: pointer;
+  border-bottom: solid 3px transparent;
+
+  &--highlighted {
+    border-bottom: solid 3px $dc-orange40;
+
+    @media (max-width: $dc-huge-width) {
+      border: none;
+
+      &::after {
+        content: "";
+        height: 100%;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: $dc-orange40;
+        position: absolute;
+      }
+    }
+
+  }
+
+  @media (max-width: $dc-huge-width) {
+    line-height: 1.6rem;
+    margin: 0;
+  }
+
+}
+
