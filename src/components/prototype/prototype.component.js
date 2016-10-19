@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../header/header.component';
 import Application from '../application/application.component';
-import './prototype.css';
+import './prototype.scss';
 
 class Prototype extends Component {
   render() {

@@ -1,0 +1,30 @@
+@import "../../../node_modules/dress-code/dist/sass/dress-code";
+
+.logo {
+  max-height: $dc-touch-size - $dc-space150;
+
+  ~ * {
+    margin-left: $dc-space150;
+  }
+
+  &--large {
+    max-width: 90px;
+    @media (max-width: $dc-huge-width) {
+      display: none;
+    }
+  }
+  &--small {
+    margin-left: 0;
+    display: none;
+    @media (max-width: $dc-huge-width) {
+      display: block;
+    }
+  }
+  &--clickable {
+    cursor: pointer;
+  }
+}
+
+.logo-container {
+  max-height: 2rem;
+}

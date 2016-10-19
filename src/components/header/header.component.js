@@ -1,12 +1,16 @@
 import React, {Component} from 'react';
-import './header.css';
+
+import Navigation from '../navigation/navigation.component';
+import SubNavigation from '../navigation/sub-navigation.component';
+import './header.scss';
 
 class Header extends Component {
   render() {
     return (
-        <div className="header">
-          <h2>Solution Center</h2>
-        </div>
+        <header className="solution-center-header">
+          <Navigation/>
+          <SubNavigation/>
+        </header>
     );
   }
 }

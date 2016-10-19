@@ -1,13 +1,10 @@
 import React, {Component} from 'react';
-import './application.scss';
 
 class Application extends Component {
   render() {
     return (
-        <p className="content">
-          Service provider application
-        </p>
-    )
+        <span>CMS</span>
+    );
   }
 }
 

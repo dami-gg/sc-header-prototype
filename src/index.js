@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Prototype from './components/prototype/prototype.component';
-import './index.css';
+import './assets/styles/main.scss';
 
 ReactDOM.render(
   <Prototype />,
