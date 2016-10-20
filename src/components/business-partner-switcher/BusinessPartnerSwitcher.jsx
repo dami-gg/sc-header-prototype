@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './business-partner-switcher.scss';
+import './BusinessPartnerSwitcher.scss';
 
 class BusinessPartnerSwitcher extends Component {
   render() {

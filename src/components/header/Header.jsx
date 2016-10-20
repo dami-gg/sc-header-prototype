@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 
-import Navigation from '../navigation/navigation.component';
-import SubNavigation from '../navigation/sub-navigation.component';
-import './header.scss';
+import Navigation from '../navigation/Navigation';
+import SubNavigation from '../navigation/SubNavigation';
+import './Header.scss';
 
 class Header extends Component {
   render() {

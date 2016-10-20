@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 
-import Products from '../products/products.component';
-import BusinessPartnerSwitcher from '../business-partner-switcher/business-partner-switcher.component';
-import UserMenu from '../user-menu/user-menu.component';
-import HelpSection from '../help-section/help-section.component';
-import Logo from '../logo/logo.component';
-import './navigation.scss';
+import Products from '../products/Products';
+import BusinessPartnerSwitcher from '../business-partner-switcher/BusinessPartnerSwitcher';
+import UserMenu from '../user-menu/UserMenu';
+import HelpSection from '../help-section/HelpSection';
+import Logo from '../logo/Logo';
+import './Navigation.scss';
 
 class Navigation extends Component {
   render() {

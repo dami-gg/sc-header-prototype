@@ -1,7 +1,14 @@
-import React, { Component } from 'react';
-import Header from '../header/header.component';
-import Application from '../application/application.component';
-import './prototype.scss';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {Provider} from 'react-redux'
+import {createStore} from 'redux';
+import scHeaderReducers from './reducers';
+
+import Header from '../header/Header';
+import Application from '../application/Application';
+import './assets/styles/main.scss';
+
+let store = createStore(scHeaderReducers);
 
 var products = [
   {
@@ -41,15 +48,12 @@ var products = [
   }
 ];
 
-class Prototype extends Component {
-  render() {
-    return (
-      <div className="prototype">
+ReactDOM.render(
+    <Provider store={store}>
+      <div>
         <Header products={products} />
         <Application />
       </div>
-    );
-  }
-}
-
-export default Prototype;
+    </Provider>,
+    document.getElementById('root')
+);

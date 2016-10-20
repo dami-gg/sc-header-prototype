@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
-import Product from '../product/product.component';
-import './products.scss';
+import Product from '../product/Product';
+import './Products.scss';
 
 class Products extends Component {
   render() {

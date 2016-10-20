@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import {toggleApplicationsMenu, changeShownProductMenuId} from '../../actions';
 
-import './product.scss';
+import './Product.scss';
 
 class Product extends Component {
   toggleMenu (event) {

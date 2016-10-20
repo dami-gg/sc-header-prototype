@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
-import Applications from '../applications/applications.component';
-import './navigation.scss';
+import Applications from '../applications/Applications';
+import './Navigation.scss';
 
 class SubNavigation extends Component {
   render() {
