@@ -4,8 +4,8 @@ import {Provider} from 'react-redux'
 import {createStore} from 'redux';
 import scHeaderReducers from './reducers';
 
-import Header from '../header/Header';
-import Application from '../application/Application';
+import Header from './components/header/Header'
+import Application from './components/application/Application';
 import './assets/styles/main.scss';
 
 let store = createStore(scHeaderReducers);
