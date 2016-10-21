@@ -12,6 +12,8 @@ class Menu extends Component {
               menuItem={menuItem}
               key={menuItem.id || ++key}
               onClickAction={this.props.onClickAction}
+              onHoverAction={this.props.onHoverAction}
+              isSwitcher={this.props.isSwitcher}
           />
       );
     });

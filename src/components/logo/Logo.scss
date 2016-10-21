@@ -1,30 +1,46 @@
 @import "../../../node_modules/dress-code/dist/sass/dress-code";
 
-.logo {
-  max-height: $dc-touch-size - $dc-space150;
+.logo-container {
+  display: flex;
+  max-height: 2rem;
 
-  ~ * {
-    margin-left: $dc-space150;
-  }
-
-  &--large {
-    max-width: 90px;
-    @media (max-width: $dc-huge-width) {
-      display: none;
-    }
-  }
-  &--small {
-    margin-left: 0;
+  &--desktop {
     display: none;
-    @media (max-width: $dc-huge-width) {
+
+    @media (min-width: $dc-huge-width) {
       display: block;
     }
   }
-  &--clickable {
+
+  &--mobile {
+    margin-left: 0;
+
+    @media (min-width: $dc-huge-width) {
+      display: none;
+    }
+  }
+
+  .logo {
     cursor: pointer;
+
+    img {
+      max-height: $dc-touch-size - $dc-space150;
+      max-width: 90px;
+    }
+  }
+
+  .menu-toggle {
+    @media (min-width: $dc-huge-width) {
+      display: none;
+    }
+
+    .dc-icon {
+      margin-left: 4px;
+      vertical-align: middle;
+    }
   }
 }
 
-.logo-container {
-  max-height: 2rem;
-}
+
+
+

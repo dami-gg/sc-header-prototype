@@ -3,7 +3,8 @@ import * as types from '../constants/ActionTypes';
 const initialState = {
   applicationsMenuShown: false,
   userMenuShown: false,
-  selectedProductId: undefined
+  selectedProductId: undefined,
+  mobileProductMenuShow: false
 };
 
 const visibility = (state = initialState, action) => {

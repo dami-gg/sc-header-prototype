@@ -1,7 +1,6 @@
 @import "../../../node_modules/dress-code/dist/sass/dress-code";
 
 .navigation {
-
   align-items: center;
   height: $dc-touch-size;
   padding: 0 $dc-space100;
@@ -10,89 +9,26 @@
   position: relative;
   line-height: 10px;
 
-  &--sub {
-    display: flex;
-    position: absolute;
-    text-align: left;
-    top: 100%;
-    right: 0;
-    width: 100%;
+  &--menu {
     background: $dc-white;
     border-top: 1px solid $dc-gray60;
     border-bottom: 1px solid $dc-gray60;
+    //display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    width: 100%;
     z-index: 998;
+
+    @media (min-width: $dc-huge-width) {
+      border: none;
+      display: block;
+      position: static;
+    }
   }
+
   &--right {
     justify-content: flex-end;
-    &.shown {
-      & .menu__item {
-        transform: translateX(0);
-      }
-    }
-    & .menu__item {
-      transform: translateX(330%);
-
-      transition: transform 0.1s 0.075s ease-out;
-      &:nth-child(n+1) {
-        transition: transform 0.1s 0.125s ease-out;
-      }
-      &:nth-child(n+2) {
-        transition: transform 0.1s 0.175s ease-out;
-      }
-      &:nth-child(n+3) {
-        transition: transform 0.1s 0.225s ease-out;
-      }
-      &:nth-child(n+4) {
-        transition: transform 0.1s 0.275s ease-out;
-      }
-      &:nth-child(n+5) {
-        transition: transform 0.1s 0.325s ease-out;
-      }
-    }
-  }
-  &--left {
-    &.shown-mobile {
-      & .menu__item {
-        transform: translateX(0);
-      }
-    }
-    & .menu__item {
-      transform: translateX(-200%);
-
-      @media (max-width: $dc-huge-width) {
-        transition: transform 0.1s 0.275s ease-out;
-        &:nth-child(n+1) {
-          transition: transform 0.1s 0.175s ease-out;
-        }
-        &:nth-child(n+2) {
-          transition: transform 0.1s 0.075s ease-out;
-        }
-      }
-    }
-  }
-  &--global {
-    position: static;
-    border: none;
-    width: auto;
-    display: block;
-    transform: none;
-    z-index: auto;
-    .menu__item {
-      flex-shrink: 0;
-      transform: none;
-    }
-    @media (max-width: $dc-huge-width) {
-      display: none;
-      &.shown-mobile {
-        display: flex;
-        position: absolute;
-        width: 100%;
-        border-top: 1px solid $dc-gray60;
-        border-bottom: 1px solid $dc-gray60;
-        z-index: 998;
-      }
-    }
-
   }
 }
 

@@ -2,18 +2,6 @@
 
 .solution-center-header {
 
-  .menu-toggle {
-    margin-top: 4px;
-    display: none;
-    @media (max-width: $dc-huge-width) {
-      display: block;
-    }
-    .dc-icon {
-      margin-left: 4px;
-      vertical-align: middle;
-    }
-  }
-
   .dc-icon {
     font-size: 2.4rem;
     /* Since we are specifying font-size, we need the line-height as well.

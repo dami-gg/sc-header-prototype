@@ -1,38 +1,81 @@
 @import "../../../node_modules/dress-code/dist/sass/dress-code";
 
-.menu__link {
-  margin-right: $dc-space150;
-  margin-top: 0.4rem;
-  color: $dc-text-color;
-  line-height: 3.6rem;
-  display: block;
-  cursor: pointer;
-  border-bottom: solid 3px transparent;
+.menu__item {
+  border-bottom: 1px solid #ededed;
+  flex-shrink: 0;
+  padding: 1.2rem;
+  transform: none;
 
-  &--highlighted {
-    border-bottom: solid 3px $dc-orange40;
+  @media (min-width: $dc-huge-width) {
+    border: none;
+    padding: 0;
+  }
 
-    @media (max-width: $dc-huge-width) {
-      border: none;
+  &__link {
+    margin-right: $dc-space150;
+    margin-top: 0.4rem;
+    color: $dc-text-color;
+    line-height: 3.6rem;
+    display: block;
+    cursor: pointer;
+    border-bottom: solid 3px transparent;
 
-      &::after {
-        content: "";
-        height: 100%;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        width: 3px;
-        background: $dc-orange40;
-        position: absolute;
+    &--highlighted {
+      border-bottom: solid 3px $dc-orange40;
+
+      @media (max-width: $dc-huge-width) {
+        border: none;
+
+        &::after {
+          content: "";
+          height: 100%;
+          left: 0;
+          top: 0;
+          bottom: 0;
+          width: 3px;
+          background: $dc-orange40;
+          position: absolute;
+        }
       }
     }
 
+    @media (max-width: $dc-huge-width) {
+      line-height: 1.6rem;
+      margin: 0;
+    }
   }
 
-  @media (max-width: $dc-huge-width) {
-    line-height: 1.6rem;
-    margin: 0;
-  }
+  &__name {
+    color: $dc-gray30;
+    font-weight: 500;
+    padding: 0.8rem 1.2rem;
+    position: relative;
+    text-transform: uppercase;
 
+    &--switcher {
+      @media (min-width: $dc-huge-width) {
+        padding-right: 16px;
+
+        &::after {
+          border-left: 5px solid transparent;
+          border-right: 5px solid transparent;
+          border-top: 5px solid $dc-gray60;
+          content: "";
+          height: 0;
+          position: absolute;
+          right: 0;
+          top: 13px;
+          width: 0;
+        }
+
+        &:hover {
+          color: $dc-secondary-accent;
+
+          &::after {
+            border-top-color: $dc-secondary-accent;
+          }
+        }
+      }
+    }
+  }
 }
-

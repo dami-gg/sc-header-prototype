@@ -4,7 +4,7 @@ import Products from '../products/Products';
 import BusinessPartnerSwitcher from '../business-partner-switcher/BusinessPartnerSwitcher';
 import UserMenu from '../user-menu/UserMenu';
 import HelpSection from '../help-section/HelpSection';
-import Logo from '../logo/Logo';
+import Logo from '../logo/LogoContainer';
 import './Navigation.scss';
 
 class Navigation extends Component {

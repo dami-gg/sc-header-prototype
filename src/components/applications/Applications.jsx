@@ -22,7 +22,7 @@ class Applications extends Component {
   render() {
     return (
         <div className="dc-column dc-column--shrink sc-header__applications">
-          <nav className="navigation--global navigation--sub navigation--left">
+          <nav className="navigation--menu">
             <Menu
                 menuItems={this.getCurrentProductApplications()}
                 onClickAction={this.navigateToApplication.bind(this)}

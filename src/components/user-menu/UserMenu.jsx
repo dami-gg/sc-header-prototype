@@ -11,7 +11,7 @@ class UserMenu extends Component {
           <div className="toggle"
                title="User Account"
                onClick={this.props.toggleUserMenu}>
-            <span>
+            <span className="user-name">
               Damián García
             </span>
             <i className="dc-icon dc-icon--user dc-icon--interactive"></i>
