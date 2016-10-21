@@ -5,7 +5,7 @@ import {createStore} from 'redux';
 import scHeaderReducers from './reducers';
 
 import Header from './components/header/Header'
-import Application from './components/application/Application';
+import ServiceProvider from './components/service-provider/ServiceProvider';
 import './assets/styles/main.scss';
 
 let store = createStore(scHeaderReducers);
@@ -48,11 +48,21 @@ var products = [
   }
 ];
 
+var user = {
+  id: 1,
+  firstName: 'Chuck',
+  lastName: 'Norris',
+  email: 'chuck.norris@solutions.zalando.com'
+};
+
 ReactDOM.render(
     <Provider store={store}>
       <div>
-        <Header products={products} />
-        <Application />
+        <Header
+            products={products}
+            user={user}
+        />
+        <ServiceProvider />
       </div>
     </Provider>,
     document.getElementById('root')

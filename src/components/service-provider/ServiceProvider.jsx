@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import './Application.scss';
+import './ServiceProvider.scss';
 
-class Application extends Component {
+class ServiceProvider extends Component {
   render() {
     return (
         <p className="content">
@@ -11,4 +11,4 @@ class Application extends Component {
   }
 }
 
-export default Application;
+export default ServiceProvider;

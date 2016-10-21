@@ -13,7 +13,7 @@ class Logo extends Component {
           { /*
           <img src={smallLogo}
                alt="Logo"
-               class="logo logo--small logo--clickable" />
+               className="logo logo--small logo--clickable" />
                */ }
         </div>
     );

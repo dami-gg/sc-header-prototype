@@ -12,23 +12,23 @@ export const toggleUserMenu = () => {
   };
 };
 
-export const changeShownProductMenuId = (productId) => {
+export const changeSelectedProductId = (productId) => {
   return {
-    type: types.CHANGE_SHOWN_PRODUCT_MENU_ID,
+    type: types.CHANGE_SELECTED_PRODUCT_ID,
     productId
   }
 };
 
-export const changeProductId = (productId) => {
+export const changeCurrentProductId = (productId) => {
   return {
-    type: types.CHANGE_PRODUCT_ID,
+    type: types.CHANGE_CURRENT_PRODUCT_ID,
     productId
   };
 };
 
-export const changeApplicationId = (applicationId) => {
+export const changeCurrentApplicationId = (applicationId) => {
   return {
-    type: types.CHANGE_APPLICATION_ID,
+    type: types.CHANGE_CURRENT_APPLICATION_ID,
     applicationId
   };
 };

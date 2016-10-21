@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
+
+import './UserMenu.scss';
 import {toggleUserMenu} from '../../actions';
 
 class UserMenu extends Component {

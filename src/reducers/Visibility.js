@@ -3,7 +3,7 @@ import * as types from '../constants/ActionTypes';
 const initialState = {
   applicationsMenuShown: false,
   userMenuShown: false,
-  shownProductMenuId: undefined
+  selectedProductId: undefined
 };
 
 const visibility = (state = initialState, action) => {
@@ -22,10 +22,10 @@ const visibility = (state = initialState, action) => {
         applicationsMenuShown: false
       };
 
-    case types.CHANGE_SHOWN_PRODUCT_MENU_ID:
+    case types.CHANGE_SELECTED_PRODUCT_ID:
       return {
           ...state,
-        shownProductMenuId: action.productId
+        selectedProductId: action.productId
       };
 
     default:
