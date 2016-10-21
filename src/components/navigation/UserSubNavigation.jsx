@@ -6,7 +6,7 @@ import UserMenuOptions from '../user-menu/UserMenuOptions';
 class UserSubNavigation extends Component {
   render() {
     return (
-        <div className="navigation dc-row dc-row--collapse dc-row--align-middle dc-row--align-spaced">
+        <div className="navigation navigation--right dc-row dc-row--collapse dc-row--align-middle dc-row--align-spaced">
           <UserMenuOptions />
         </div>
     );

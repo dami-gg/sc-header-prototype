@@ -62,7 +62,7 @@ ReactDOM.render(
             products={products}
             user={user}
         />
-        <ServiceProvider />
+        <ServiceProvider products={products} />
       </div>
     </Provider>,
     document.getElementById('root')

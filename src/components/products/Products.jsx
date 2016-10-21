@@ -46,6 +46,7 @@ class Products extends Component {
                 onClickAction={this.toggleMenu.bind(this)}
                 onHoverAction={this.switchMenu.bind(this)}
                 isSwitcher={true}
+                highlightedItemId={this.props.currentProductId}
             />
           </nav>
         </div>
@@ -55,7 +56,8 @@ class Products extends Component {
 
 const mapStateToProps = (state) => ({
   selectedProductId: state.visibility.selectedProductId,
-  applicationsMenuShown: state.visibility.applicationsMenuShown
+  applicationsMenuShown: state.visibility.applicationsMenuShown,
+  currentProductId: state.navigation.currentProductId
 });
 
 const mapDispatchToProps = (dispatch) => {

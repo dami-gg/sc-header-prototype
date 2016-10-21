@@ -10,13 +10,13 @@ const navigation = (state = initialState, action) => {
     case types.CHANGE_CURRENT_PRODUCT_ID:
       return {
         ...state,
-        currentProductId: action.id
+        currentProductId: action.productId
       };
 
     case types.CHANGE_CURRENT_APPLICATION_ID:
       return {
         ...state,
-        currentApplicationId: action.id
+        currentApplicationId: action.applicationId
       };
 
     default:

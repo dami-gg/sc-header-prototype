@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
+import './Applications.scss';
 import Menu from '../menu/Menu';
+import {changeCurrentProductId, changeCurrentApplicationId} from '../../actions';
 
 class Applications extends Component {
   getCurrentProduct() {
@@ -16,7 +18,16 @@ class Applications extends Component {
 
   navigateToApplication(clickedItem, event) {
     event.preventDefault();
-    console.log('navigated to: ' + clickedItem.url);
+
+    this.props.changeCurrentApplicationId(clickedItem.id);
+
+    // TODO This should be fetched from a BE endpoint which returns the ProductId to which belongs a given ApplicationId
+    let newProductId = this.props.products.filter((product) => {
+      return product.applications.filter((application) => {
+        return application.id === clickedItem.id;
+      }).length > 0;
+    })[0].id;
+    this.props.changeCurrentProductId(newProductId);
   }
 
   render() {
@@ -26,6 +37,7 @@ class Applications extends Component {
             <Menu
                 menuItems={this.getCurrentProductApplications()}
                 onClickAction={this.navigateToApplication.bind(this)}
+                highlightedItemId={this.props.currentApplicationId}
             />
           </nav>
         </div>
@@ -34,9 +46,23 @@ class Applications extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  selectedProductId: state.visibility.selectedProductId
+  selectedProductId: state.visibility.selectedProductId,
+  currentApplicationId: state.navigation.currentApplicationId
 });
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    changeCurrentProductId: (productId) => {
+      dispatch(changeCurrentProductId(productId));
+    },
+
+    changeCurrentApplicationId: (applicationId) => {
+      dispatch(changeCurrentApplicationId(applicationId));
+    }
+  }
+};
+
 export default connect(
-    mapStateToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(Applications);
