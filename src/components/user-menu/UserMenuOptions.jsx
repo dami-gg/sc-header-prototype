@@ -28,13 +28,15 @@ class UserMenuOptions extends Component {
 
   render() {
     return (
-        <div className="dc-column dc-column--shrink sc-header__user-menu">
-          <nav className="navigation--menu">
-            <Menu
-                menuItems={this.getOptions()}
-                onClickAction={this.navigateToOption.bind(this)}
-            />
-          </nav>
+        <div className="navigation navigation--right dc-row dc-row--collapse dc-row--align-middle dc-row--align-spaced">
+          <div className="dc-column dc-column--shrink sc-header__user-menu">
+            <nav className="navigation--menu">
+              <Menu
+                  menuItems={this.getOptions()}
+                  onClickAction={this.navigateToOption.bind(this)}
+              />
+            </nav>
+          </div>
         </div>
     );
   }

@@ -3,8 +3,8 @@ import {connect} from 'react-redux';
 
 import './Header.scss';
 import Navigation from '../navigation/Navigation';
-import ApplicationsSubNavigation from '../navigation/ApplicationsSubNavigation';
-import UserSubNavigation from '../navigation/UserSubNavigation';
+import Applications from '../applications/Applications';
+import UserMenuOptions from '../user-menu/UserMenuOptions';
 import BusinessPartnerMenu from '../business-partner-menu/BusinessPartnerMenu';
 
 class Header extends Component {
@@ -31,13 +31,11 @@ class Header extends Component {
           />
           {
             this.showApplicationsSubNavigation() &&
-            <ApplicationsSubNavigation
-                products={this.props.products}
-            />
+            <Applications products={this.props.products}/>
           }
           {
             this.showUserSubNavigation() &&
-            <UserSubNavigation
+            <UserMenuOptions
                 user={this.props.user}
             />
           }

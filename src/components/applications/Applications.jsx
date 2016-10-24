@@ -38,15 +38,17 @@ class Applications extends Component {
 
   render() {
     return (
-        <div className="dc-column dc-column--shrink sc-header__applications">
-          <nav className="navigation--menu">
-            <Menu
-                menuItems={this.getCurrentProductApplications()}
-                onClickAction={this.navigateToApplication.bind(this)}
-                highlightedItemId={this.props.currentApplicationId}
-                highlightedClass={'highlighted'}
-            />
-          </nav>
+        <div className="navigation dc-row dc-row--collapse dc-row--align-middle dc-row--align-spaced">
+          <div className="dc-column dc-column--shrink sc-header__applications">
+            <nav className="navigation--menu">
+              <Menu
+                  menuItems={this.getCurrentProductApplications()}
+                  onClickAction={this.navigateToApplication.bind(this)}
+                  highlightedItemId={this.props.currentApplicationId}
+                  highlightedClass={'highlighted'}
+              />
+            </nav>
+          </div>
         </div>
     );
   }
