@@ -1,22 +1,29 @@
 import * as types from '../constants/ActionTypes';
 
 const initialState = {
-  currentProductId: undefined,
-  currentApplicationId: undefined
+  currentProduct: undefined,
+  currentApplication: undefined,
+  currentBusinessPartner: undefined
 };
 
 const navigation = (state = initialState, action) => {
   switch (action.type) {
-    case types.CHANGE_CURRENT_PRODUCT_ID:
+    case types.CHANGE_CURRENT_PRODUCT:
       return {
         ...state,
-        currentProductId: action.productId
+        currentProduct: action.product
       };
 
-    case types.CHANGE_CURRENT_APPLICATION_ID:
+    case types.CHANGE_CURRENT_APPLICATION:
       return {
         ...state,
-        currentApplicationId: action.applicationId
+        currentApplication: action.application
+      };
+
+    case types.CHANGE_CURRENT_BUSINESS_PARTNER:
+      return {
+        ...state,
+        currentBusinessPartner: action.businessPartner
       };
 
     default:

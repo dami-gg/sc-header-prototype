@@ -19,16 +19,29 @@ export const changeSelectedProductId = (productId) => {
   }
 };
 
-export const changeCurrentProductId = (productId) => {
+export const changeCurrentProduct = (product) => {
   return {
-    type: types.CHANGE_CURRENT_PRODUCT_ID,
-    productId
+    type: types.CHANGE_CURRENT_PRODUCT,
+    product
   };
 };
 
-export const changeCurrentApplicationId = (applicationId) => {
+export const changeCurrentApplication = (application) => {
   return {
-    type: types.CHANGE_CURRENT_APPLICATION_ID,
-    applicationId
+    type: types.CHANGE_CURRENT_APPLICATION,
+    application
   };
+};
+
+export const changeCurrentBusinessPartner = (businessPartner) => {
+  return {
+    type: types.CHANGE_CURRENT_BUSINESS_PARTNER,
+    businessPartner
+  };
+};
+
+export const toggleBusinessPartnerMenu = () => {
+  return {
+    type: types.TOGGLE_BUSINESS_PARTNER_MENU
+  }
 };

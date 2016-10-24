@@ -38,6 +38,11 @@
       }
     }
 
+    &--bold .menu__item__name {
+      color: $dc-gray10;
+      font-weight: bold;
+    }
+
     @media (max-width: $dc-huge-width) {
       line-height: 1.6rem;
       margin: 0;

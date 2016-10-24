@@ -34,8 +34,8 @@ class ServiceProvider extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  currentProductId: state.navigation.currentProductId,
-  currentApplicationId: state.navigation.currentApplicationId
+  currentProductId: state.navigation.currentProduct && state.navigation.currentProduct.id,
+  currentApplicationId: state.navigation.currentApplication && state.navigation.currentApplication.id
 });
 
 export default connect(

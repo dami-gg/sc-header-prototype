@@ -1,0 +1,14 @@
+@import "../../../node_modules/dress-code/dist/sass/dress-code";
+
+.business-partner-menu {
+  background-color: rgba($dc-black, .7);
+  color: $dc-white;
+  height: 300px;
+  left: 50%;
+  padding: 20px;
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  z-index: 999;
+}

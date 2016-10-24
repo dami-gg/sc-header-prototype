@@ -15,6 +15,7 @@ class Menu extends Component {
               onHoverAction={this.props.onHoverAction}
               isSwitcher={this.props.isSwitcher}
               isHighlighted={this.props.highlightedItemId && menuItem.id === this.props.highlightedItemId}
+              highlightedClass={this.props.highlightedClass}
           />
       );
     });

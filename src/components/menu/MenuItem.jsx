@@ -7,12 +7,15 @@ class MenuItem extends Component {
     return (
         <li className="menu__item"
             onMouseOver={event => {
-              return this.props.onHoverAction && this.props.onHoverAction(this.props.menuItem, event);
+              event.preventDefault();
+              return this.props.onHoverAction && this.props.onHoverAction(this.props.menuItem);
             }}
         > { /*ng-if="!module.hidden"*/}
-          <a className={'menu__item__link' + (this.props.isHighlighted ? ' menu__item__link--highlighted' : '')}
+          <a className={'menu__item__link' +
+          (this.props.isHighlighted ? (' menu__item__link--' + this.props.highlightedClass) : '')}
              onClick={event => {
-               return this.props.onClickAction && this.props.onClickAction(this.props.menuItem, event);
+               event.preventDefault();
+               return this.props.onClickAction && this.props.onClickAction(this.props.menuItem);
              }}
              href>
             <span className={'menu__item__name' + (this.props.isSwitcher ? ' menu__item__name--switcher' : '')}>

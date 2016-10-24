@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 
 import './Applications.scss';
 import Menu from '../menu/Menu';
-import {changeCurrentProductId, changeCurrentApplicationId} from '../../actions';
+import {changeCurrentProduct, changeCurrentApplication} from '../../actions';
 
 class Applications extends Component {
   getCurrentProduct() {
@@ -16,18 +16,24 @@ class Applications extends Component {
     return this.getCurrentProduct() ? this.getCurrentProduct().applications : [];
   }
 
-  navigateToApplication(clickedItem, event) {
-    event.preventDefault();
-
-    this.props.changeCurrentApplicationId(clickedItem.id);
-
+  navigateToApplication(clickedItem) {
     // TODO This should be fetched from a BE endpoint which returns the ProductId to which belongs a given ApplicationId
-    let newProductId = this.props.products.filter((product) => {
-      return product.applications.filter((application) => {
+    let result, currentApplication = '', currentProduct;
+    currentProduct = this.props.products.filter((product) => {
+      result = product.applications.filter((application) => {
         return application.id === clickedItem.id;
-      }).length > 0;
-    })[0].id;
-    this.props.changeCurrentProductId(newProductId);
+      });
+
+      if (result.length > 0) {
+        currentApplication = result[0];
+        return true;
+      }
+
+      return false;
+    })[0];
+
+    this.props.changeCurrentProduct(currentProduct);
+    this.props.changeCurrentApplication(currentApplication);
   }
 
   render() {
@@ -38,6 +44,7 @@ class Applications extends Component {
                 menuItems={this.getCurrentProductApplications()}
                 onClickAction={this.navigateToApplication.bind(this)}
                 highlightedItemId={this.props.currentApplicationId}
+                highlightedClass={'highlighted'}
             />
           </nav>
         </div>
@@ -47,17 +54,17 @@ class Applications extends Component {
 
 const mapStateToProps = (state) => ({
   selectedProductId: state.visibility.selectedProductId,
-  currentApplicationId: state.navigation.currentApplicationId
+  currentApplicationId: state.navigation.currentApplication && state.navigation.currentApplication.id
 });
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    changeCurrentProductId: (productId) => {
-      dispatch(changeCurrentProductId(productId));
+    changeCurrentProduct: (product) => {
+      dispatch(changeCurrentProduct(product));
     },
 
-    changeCurrentApplicationId: (applicationId) => {
-      dispatch(changeCurrentApplicationId(applicationId));
+    changeCurrentApplication: (application) => {
+      dispatch(changeCurrentApplication(application));
     }
   }
 };

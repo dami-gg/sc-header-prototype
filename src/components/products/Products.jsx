@@ -6,8 +6,7 @@ import Menu from '../menu/Menu';
 import {toggleApplicationsMenu, changeSelectedProductId} from '../../actions';
 
 class Products extends Component {
-  toggleMenu(clickedItem, event) {
-    event.preventDefault();
+  toggleMenu(clickedItem) {
     let clickedProductId = clickedItem.id;
 
     // If the submenu is closed, open it and update the shown product
@@ -22,8 +21,7 @@ class Products extends Component {
     }
   }
 
-  switchMenu(hoveredItem, event) {
-    event.preventDefault();
+  switchMenu(hoveredItem) {
     let hoveredProductId = hoveredItem.id;
 
     // If the submenu is closed, open it and update the shown product
@@ -47,6 +45,7 @@ class Products extends Component {
                 onHoverAction={this.switchMenu.bind(this)}
                 isSwitcher={true}
                 highlightedItemId={this.props.currentProductId}
+                highlightedClass={'bold'}
             />
           </nav>
         </div>
@@ -57,7 +56,7 @@ class Products extends Component {
 const mapStateToProps = (state) => ({
   selectedProductId: state.visibility.selectedProductId,
   applicationsMenuShown: state.visibility.applicationsMenuShown,
-  currentProductId: state.navigation.currentProductId
+  currentProductId: state.navigation.currentProduct && state.navigation.currentProduct.id
 });
 
 const mapDispatchToProps = (dispatch) => {

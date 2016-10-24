@@ -22,8 +22,7 @@ class UserMenuOptions extends Component {
     }];
   }
 
-  navigateToOption(clickedItem, event) {
-    event.preventDefault();
+  navigateToOption(clickedItem) {
     console.log('navigated to: ' + clickedItem.url);
   }
 

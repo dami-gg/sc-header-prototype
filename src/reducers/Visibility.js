@@ -4,7 +4,8 @@ const initialState = {
   applicationsMenuShown: false,
   userMenuShown: false,
   selectedProductId: undefined,
-  mobileProductMenuShow: false
+  mobileProductMenuShow: false,
+  businessPartnerMenuShown: false
 };
 
 const visibility = (state = initialState, action) => {
@@ -25,8 +26,14 @@ const visibility = (state = initialState, action) => {
 
     case types.CHANGE_SELECTED_PRODUCT_ID:
       return {
-          ...state,
+        ...state,
         selectedProductId: action.productId
+      };
+
+    case types.TOGGLE_BUSINESS_PARTNER_MENU:
+      return {
+        ...state,
+        businessPartnerMenuShown: !state.businessPartnerMenuShown
       };
 
     default:
