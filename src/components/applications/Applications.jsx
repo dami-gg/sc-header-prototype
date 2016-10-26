@@ -5,7 +5,7 @@ import './Applications.scss';
 import Menu from '../menu/Menu';
 import {
     changeCurrentProduct, changeCurrentApplication, showBusinessPartnerMenu, hideBusinessPartnerMenu,
-    updateAccessibleBusinessPartners, updateLastAccessedBusinessPartners
+    updateAccessibleBusinessPartners, updateLastAccessedBusinessPartners, resetCurrentBusinessPartner
 } from '../../actions';
 
 class Applications extends Component {
@@ -68,6 +68,7 @@ class Applications extends Component {
     if (!this.props.currentBusinessPartner ||
         this.props.currentBusinessPartner.type !== nextApplication.businessPartnerType) {
       // TODO It must also check if the user has access to that concrete business partner which is carried over in the new application
+      this.props.resetCurrentBusinessPartner();
       this.props.showBusinessPartnerMenu();
     }
   }
@@ -119,6 +120,10 @@ const mapDispatchToProps = (dispatch) => {
 
     updateLastAccessedBusinessPartners: (lastAccessedBusinessPartners) => {
       dispatch(updateLastAccessedBusinessPartners(lastAccessedBusinessPartners));
+    },
+
+    resetCurrentBusinessPartner: () => {
+      dispatch(resetCurrentBusinessPartner());
     }
   }
 };
