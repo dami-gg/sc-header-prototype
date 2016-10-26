@@ -2,58 +2,26 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 import './BusinessPartnerMenu.scss';
-import {changeCurrentBusinessPartner, toggleBusinessPartnerMenu, updateBusinessPartnerSearchResults} from '../../actions';
+import {
+    changeCurrentBusinessPartner, hideBusinessPartnerMenu, updateBusinessPartnerSearchResults
+} from '../../actions';
 import Search from '../search/Search';
-import * as businessPartnerTypes from '../../constants/BusinessPartnerTypes';
 
 class BusinessPartnerMenu extends Component {
-  getSearchableItems() {
-    switch (this.props.currentApplication.businessPartnerType) {
-      case businessPartnerTypes.BRAND:
-        return this.props.userBrands;
-
-      case businessPartnerTypes.MERCHANT:
-        return this.props.userMerchants;
-
-      case businessPartnerTypes.SUPPLIER:
-        return this.props.userSuppliers;
-
-      default:
-        return [];
-    }
-  }
-
-  getLastAccessedItems() {
-    switch (this.props.currentApplication.businessPartnerType) {
-      case businessPartnerTypes.BRAND:
-        return this.props.lastAccessedBrands;
-
-      case businessPartnerTypes.MERCHANT:
-        return this.props.lastAccessedMerchants;
-
-      case businessPartnerTypes.SUPPLIER:
-        return this.props.lastAccessedSuppliers;
-
-      default:
-        return [];
-    }
-  }
-
   selectBusinessPartner(businessPartner) {
     this.props.changeCurrentBusinessPartner(businessPartner);
-    this.props.toggleBusinessPartnerMenu();
+    this.props.hideBusinessPartnerMenu();
     this.props.updateBusinessPartnerSearchResults([]);
   }
 
   render() {
-    let lastAccessedNodes = this.getLastAccessedItems().map((item) => {
+    let lastAccessedNodes = this.props.lastAccessedBusinessPartners.map((item) => {
       return (
-          <li
-              onClick={() => {
-                return this.selectBusinessPartner(item);
-              }}
+          <li className="business-partner-menu__last-accessed__item"
               key={item.id}
-              href
+              onClick={() => {
+                this.selectBusinessPartner(item);
+              }}
           >
             {item.name}
           </li>
@@ -63,12 +31,12 @@ class BusinessPartnerMenu extends Component {
     return (
         <div className="business-partner-menu">
           <Search
-              searchableItems={this.getSearchableItems()}
-              onClickAction={this.selectBusinessPartner}
+              searchableItems={this.props.accessibleBusinessPartners}
+              onClickAction={this.selectBusinessPartner.bind(this)}
           />
 
           <p>Last used:</p>
-          <ul>
+          <ul className="business-partner-menu__last-accessed">
             {lastAccessedNodes}
           </ul>
         </div>
@@ -78,7 +46,9 @@ class BusinessPartnerMenu extends Component {
 
 const mapStateToProps = (state) => ({
   currentApplication: state.navigation.currentApplication,
-  currentBusinessPartner: state.navigation.currentBusinessPartner
+  currentBusinessPartner: state.navigation.currentBusinessPartner,
+  accessibleBusinessPartners: state.businessPartners.accessibleBusinessPartners,
+  lastAccessedBusinessPartners: state.businessPartners.lastAccessedBusinessPartners
 });
 
 const mapDispatchToProps = (dispatch) => {
@@ -87,13 +57,15 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(changeCurrentBusinessPartner(businessPartner));
     },
 
-    toggleBusinessPartnerMenu: () => {
-      dispatch(toggleBusinessPartnerMenu());
+    hideBusinessPartnerMenu: () => {
+      dispatch(hideBusinessPartnerMenu());
     },
 
     updateBusinessPartnerSearchResults: (businessPartnerSearchResults) => {
       dispatch(updateBusinessPartnerSearchResults(businessPartnerSearchResults));
     }
+
+
   }
 };
 

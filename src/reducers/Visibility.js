@@ -24,6 +24,18 @@ const visibility = (state = initialState, action) => {
         applicationsMenuShown: false
       };
 
+    case types.SHOW_BUSINESS_PARTNER_MENU:
+      return {
+        ...state,
+        businessPartnerMenuShown: true
+      };
+
+    case types.HIDE_BUSINESS_PARTNER_MENU:
+      return {
+        ...state,
+        businessPartnerMenuShown: false
+      };
+
     case types.TOGGLE_BUSINESS_PARTNER_MENU:
       return {
         ...state,

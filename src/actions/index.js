@@ -16,6 +16,18 @@ export const toggleUserMenu = () => {
   };
 };
 
+export const showBusinessPartnerMenu = () => {
+  return {
+    type: types.SHOW_BUSINESS_PARTNER_MENU
+  }
+};
+
+export const hideBusinessPartnerMenu = () => {
+  return {
+    type: types.HIDE_BUSINESS_PARTNER_MENU
+  }
+};
+
 export const toggleBusinessPartnerMenu = () => {
   return {
     type: types.TOGGLE_BUSINESS_PARTNER_MENU
@@ -79,12 +91,26 @@ export const resetCurrentBusinessPartner = () => {
 };
 
 /*
- BUSINESS PARTNER SEARCH
+ BUSINESS PARTNERS
  */
+
+export const updateAccessibleBusinessPartners = (accessibleBusinessPartners) => {
+  return {
+    type: types.UPDATE_ACCESSIBLE_BUSINESS_PARTNERS,
+    accessibleBusinessPartners
+  };
+};
+
+export const updateLastAccessedBusinessPartners = (lastAccessedBusinessPartners) => {
+  return {
+    type: types.UPDATE_LAST_ACCESSED_BUSINESS_PARTNERS,
+    lastAccessedBusinessPartners
+  };
+};
 
 export const updateBusinessPartnerSearchResults = (businessPartnerSearchResults) => {
   return {
     type: types.UPDATE_BUSINESS_PARTNER_SEARCH_RESULTS,
     businessPartnerSearchResults
-  }
+  };
 };

@@ -54,58 +54,70 @@ var products = [
   }
 ];
 
-var userBrands = [{
+var userBusinessPartners = [{
   id: 1,
-  name: 'Adidas'
+  name: 'Adidas',
+  type: businessPartnerTypes.BRAND
 }, {
   id: 2,
-  name: 'Nike'
+  name: 'Nike',
+  type: businessPartnerTypes.BRAND
 }, {
-  id: 9,
-  name: 'Reebok'
-}, {
-  id: 10,
-  name: 'Vans'
-}, {
-  id: 11,
-  name: 'Ray-Ban'
-}, {
-  id: 12,
-  name: 'Tommy Hilfiger'
-}];
-
-var userMerchants = [{
   id: 3,
-  name: 'Merchant 1'
+  name: 'Merchant 1',
+  type: businessPartnerTypes.MERCHANT
 }, {
   id: 4,
-  name: 'Merchant 2'
+  name: 'Merchant 2',
+  type: businessPartnerTypes.MERCHANT
 }, {
   id: 5,
-  name: 'Merchant 3'
+  name: 'Merchant 3',
+  type: businessPartnerTypes.MERCHANT
 }, {
-  id: 13,
-  name: 'Merchant 4'
-}, {
-  id: 14,
-  name: 'Merchant 5'
-}];
-
-var userSuppliers = [{
   id: 6,
-  name: 'Supplier 1'
+  name: 'Supplier 1',
+  type: businessPartnerTypes.SUPPLIER
 }, {
   id: 7,
-  name: 'Supplier 2'
+  name: 'Supplier 2',
+  type: businessPartnerTypes.SUPPLIER
+}, {
+  id: 8,
+  name: 'Reebok',
+  type: businessPartnerTypes.BRAND
+}, {
+  id: 9,
+  name: 'Vans',
+  type: businessPartnerTypes.BRAND
+}, {
+  id: 10,
+  name: 'Ray-Ban',
+  type: businessPartnerTypes.BRAND
+}, {
+  id: 11,
+  name: 'Tommy Hilfiger',
+  type: businessPartnerTypes.BRAND
+}, {
+  id: 12,
+  name: 'Merchant 4',
+  type: businessPartnerTypes.MERCHANT
+}, {
+  id: 13,
+  name: 'Merchant 5',
+  type: businessPartnerTypes.MERCHANT
+}, {
+  id: 14,
+  name: 'Supplier 3',
+  type: businessPartnerTypes.SUPPLIER
 }, {
   id: 15,
-  name: 'Supplier 3'
+  name: 'Supplier 4',
+  type: businessPartnerTypes.SUPPLIER
 }, {
   id: 16,
-  name: 'Supplier 4'
-}, {
-  id: 17,
-  name: 'Supplier 5'
+  name: 'Supplier 5',
+  type: businessPartnerTypes.SUPPLIER
 }];
 
 var user = {
@@ -115,45 +127,13 @@ var user = {
   email: 'chuck.norris@solutions.zalando.com'
 };
 
-var lastAccessedBrands = [{
-  id: 9,
-  name: 'Reebok'
-}, {
-  id: 10,
-  name: 'Vans'
-}, {
-  id: 11,
-  name: 'Ray-Ban'
-}];
-
-var lastAccessedMerchants = [{
-  id: 5,
-  name: 'Merchant 3'
-}, {
-  id: 13,
-  name: 'Merchant 4'
-}];
-
-var lastAccessedSuppliers = [{
-  id: 7,
-  name: 'Supplier 2'
-}, {
-  id: 15,
-  name: 'Supplier 3'
-}];
-
 ReactDOM.render(
     <Provider store={store}>
       <div>
         <Header
             products={products}
             user={user}
-            userBrands={userBrands}
-            userMerchants={userMerchants}
-            userSuppliers={userSuppliers}
-            lastAccessedBrands={lastAccessedBrands}
-            lastAccessedMerchants={lastAccessedMerchants}
-            lastAccessedSuppliers={lastAccessedSuppliers}
+            userBusinessPartners={userBusinessPartners}
         />
         <ServiceProvider products={products}/>
       </div>

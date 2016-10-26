@@ -1,12 +1,17 @@
 import React, {Component} from 'react';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 
 import './Search.scss';
 import SearchBox from './SearchBox';
 import SearchResults from './SearchResults';
+import SearchButton from './SearchButton';
 import {updateBusinessPartnerSearchResults} from '../../actions';
 
 class Search extends Component {
+  componentWillMount() {
+    this.props.updateBusinessPartnerSearchResults([]);
+  }
+
   updateResults(event) {
     let search = event.target.value;
     let regex = new RegExp(search, "gi");
@@ -20,21 +25,25 @@ class Search extends Component {
 
   render() {
     return (
-        <div className="search-form">
+        <div className="dc-search-form">
           <SearchBox
               onChangeAction={this.updateResults.bind(this)}
           />
-          <SearchResults
-              results={this.props.businessPartnerSearchResults}
-              onClickAction={this.props.onClickAction}
-          />
+          <SearchButton />
+          {
+            this.props.searchResults && this.props.searchResults.length > 0 &&
+            <SearchResults
+                searchResults={this.props.searchResults}
+                onClickAction={this.props.onClickAction}
+            />
+          }
         </div>
     );
   }
 }
 
 const mapStateToProps = (state) => ({
-  businessPartnerSearchResults: state.businessPartnerSearch.businessPartnerSearchResults
+  searchResults: state.businessPartners.businessPartnerSearchResults
 });
 
 const mapDispatchToProps = (dispatch) => {

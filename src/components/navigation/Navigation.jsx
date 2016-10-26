@@ -13,11 +13,7 @@ class Navigation extends Component {
         <div className="navigation dc-row dc-row--collapse dc-row--align-middle dc-row--align-spaced">
           <LogoContainer />
           <Products products={this.props.products} />
-          <BusinessPartner
-              userBrands={this.props.userBrands}
-              userMerchants={this.props.userMerchants}
-              userSuppliers={this.props.userSuppliers}
-          />
+          <BusinessPartner />
           <UserMenu />
           <HelpSection />
         </div>

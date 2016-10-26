@@ -4,7 +4,7 @@ import './Search.scss';
 
 class SearchResults extends Component {
   render() {
-    let resultNodes = this.props.results.map((result) => {
+    let searchResultsNodes = this.props.searchResults.map((result) => {
       return (
           <li
               className="dc-suggest__item dc-link"
@@ -19,11 +19,9 @@ class SearchResults extends Component {
     });
 
     return (
-        <div>
-          <ul className={'dc-list dc-suggest' + (this.props.results.length > 0 ? ' visible' : '')}>
-            {resultNodes}
-          </ul>
-        </div>
+        <ul className={'dc-list dc-suggest' + (this.props.searchResults.length > 0 ? ' visible' : '')}>
+          {searchResultsNodes}
+        </ul>
     );
   }
 }

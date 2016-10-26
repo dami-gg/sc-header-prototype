@@ -10,5 +10,13 @@
   top: 50%;
   transform: translate(-50%, -50%);
   width: 300px;
-  z-index: 999;
+  z-index: 500;
+
+  &__last-accessed {
+    list-style: none;
+
+    &__item {
+      cursor: pointer;
+    }
+  }
 }

@@ -12,7 +12,7 @@ let placeholder = {
 
 class BusinessPartner extends Component {
   getMenuItem() {
-    return this.currentBusinessPartner ? [this.currentBusinessPartner] : [placeholder];
+    return this.props.currentBusinessPartner ? [this.props.currentBusinessPartner] : [placeholder];
   }
 
   render() {
