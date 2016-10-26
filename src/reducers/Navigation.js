@@ -26,6 +26,24 @@ const navigation = (state = initialState, action) => {
         currentBusinessPartner: action.businessPartner
       };
 
+    case types.RESET_CURRENT_PRODUCT:
+      return {
+        ...state,
+        currentProduct: undefined
+      };
+
+    case types.RESET_CURRENT_APPLICATION:
+      return {
+        ...state,
+        currentApplication: undefined
+      };
+
+    case types.RESET_CURRENT_BUSINESS_PARTNER:
+      return {
+        ...state,
+        currentBusinessPartner: undefined
+      };
+
     default:
       return state
   }

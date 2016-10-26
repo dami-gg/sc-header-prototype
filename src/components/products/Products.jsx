@@ -3,35 +3,31 @@ import {connect} from 'react-redux';
 
 import './Products.scss';
 import Menu from '../menu/Menu';
-import {toggleApplicationsMenu, changeSelectedProductId} from '../../actions';
+import {toggleApplicationsMenu, changeSelectedProduct, resetSelectedProduct} from '../../actions';
 
 class Products extends Component {
-  toggleMenu(clickedItem) {
-    let clickedProductId = clickedItem.id;
-
+  toggleMenu(clickedProduct) {
     // If the submenu is closed, open it and update the shown product
     if (!this.props.applicationsMenuShown) {
       this.props.toggleApplicationsMenu();
-      this.props.changeShownProductId(clickedProductId);
+      this.props.changeShownProduct(clickedProduct);
     }
     // If it is opened, close it only if the clicked product is the one that was shown
-    else if (this.props.selectedProductId === clickedProductId) {
+    else if (this.props.selectedProductId === clickedProduct.id) {
       this.props.toggleApplicationsMenu();
-      this.props.changeShownProductId(undefined);
+      this.props.resetSelectedProduct();
     }
   }
 
-  switchMenu(hoveredItem) {
-    let hoveredProductId = hoveredItem.id;
-
+  switchMenu(hoveredProduct) {
     // If the submenu is closed, open it and update the shown product
       if (!this.props.applicationsMenuShown) {
       this.props.toggleApplicationsMenu();
-      this.props.changeShownProductId(hoveredProductId);
+      this.props.changeShownProduct(hoveredProduct);
     }
     // If it is opened, show another product only if it's a different one
-    else if (this.props.selectedProductId !== hoveredProductId) {
-      this.props.changeShownProductId(hoveredProductId);
+    else if (this.props.selectedProductId !== hoveredProduct.id) {
+      this.props.changeShownProduct(hoveredProduct);
     }
   }
 
@@ -54,7 +50,7 @@ class Products extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  selectedProductId: state.visibility.selectedProductId,
+  selectedProductId: state.visibility.selectedProduct && state.visibility.selectedProduct.id,
   applicationsMenuShown: state.visibility.applicationsMenuShown,
   currentProductId: state.navigation.currentProduct && state.navigation.currentProduct.id
 });
@@ -65,8 +61,12 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(toggleApplicationsMenu());
     },
 
-    changeShownProductId: (productId) => {
-      dispatch(changeSelectedProductId(productId));
+    changeShownProduct: (product) => {
+      dispatch(changeSelectedProduct(product));
+    },
+
+    resetSelectedProduct: () => {
+      dispatch(resetSelectedProduct());
     }
   }
 };

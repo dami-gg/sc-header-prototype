@@ -55,7 +55,7 @@ class Applications extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  selectedProductId: state.visibility.selectedProductId,
+  selectedProductId: state.visibility.selectedProduct && state.visibility.selectedProduct.id,
   currentApplicationId: state.navigation.currentApplication && state.navigation.currentApplication.id
 });
 

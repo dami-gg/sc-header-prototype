@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 import './BusinessPartnerMenu.scss';
-import {changeCurrentBusinessPartner} from '../../actions';
+import {changeCurrentBusinessPartner, toggleBusinessPartnerMenu, updateBusinessPartnerSearchResults} from '../../actions';
 import Search from '../search/Search';
 import * as businessPartnerTypes from '../../constants/BusinessPartnerTypes';
 
@@ -39,23 +39,32 @@ class BusinessPartnerMenu extends Component {
     }
   }
 
+  selectBusinessPartner(businessPartner) {
+    this.props.changeCurrentBusinessPartner(businessPartner);
+    this.props.toggleBusinessPartnerMenu();
+    this.props.updateBusinessPartnerSearchResults([]);
+  }
+
   render() {
     let lastAccessedNodes = this.getLastAccessedItems().map((item) => {
       return (
           <li
-              onClick={this.props.changeCurrentBusinessPartner(item.id)}
+              onClick={() => {
+                return this.selectBusinessPartner(item);
+              }}
               key={item.id}
+              href
           >
             {item.name}
           </li>
-      )
+      );
     });
 
     return (
         <div className="business-partner-menu">
           <Search
               searchableItems={this.getSearchableItems()}
-              onClickAction={this.props.changeCurrentBusinessPartner}
+              onClickAction={this.selectBusinessPartner}
           />
 
           <p>Last used:</p>
@@ -74,8 +83,16 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    changeCurrentBusinessPartner: () => {
-      dispatch(changeCurrentBusinessPartner(undefined));
+    changeCurrentBusinessPartner: (businessPartner) => {
+      dispatch(changeCurrentBusinessPartner(businessPartner));
+    },
+
+    toggleBusinessPartnerMenu: () => {
+      dispatch(toggleBusinessPartnerMenu());
+    },
+
+    updateBusinessPartnerSearchResults: (businessPartnerSearchResults) => {
+      dispatch(updateBusinessPartnerSearchResults(businessPartnerSearchResults));
     }
   }
 };

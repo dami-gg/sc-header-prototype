@@ -1,5 +1,9 @@
 import * as types from '../constants/ActionTypes';
 
+/*
+ VISIBILITY
+ */
+
 export const toggleApplicationsMenu = () => {
   return {
     type: types.TOGGLE_APPLICATIONS_MENU
@@ -12,12 +16,28 @@ export const toggleUserMenu = () => {
   };
 };
 
-export const changeSelectedProductId = (productId) => {
+export const toggleBusinessPartnerMenu = () => {
   return {
-    type: types.CHANGE_SELECTED_PRODUCT_ID,
-    productId
+    type: types.TOGGLE_BUSINESS_PARTNER_MENU
   }
 };
+
+export const changeSelectedProduct = (product) => {
+  return {
+    type: types.CHANGE_SELECTED_PRODUCT,
+    product
+  }
+};
+
+export const resetSelectedProduct = () => {
+  return {
+    type: types.RESET_SELECTED_PRODUCT
+  }
+};
+
+/*
+  NAVIGATION
+ */
 
 export const changeCurrentProduct = (product) => {
   return {
@@ -40,8 +60,31 @@ export const changeCurrentBusinessPartner = (businessPartner) => {
   };
 };
 
-export const toggleBusinessPartnerMenu = () => {
+export const resetCurrentProduct = () => {
   return {
-    type: types.TOGGLE_BUSINESS_PARTNER_MENU
+    type: types.RESET_CURRENT_PRODUCT
+  };
+};
+
+export const resetCurrentApplication = () => {
+  return {
+    type: types.RESET_CURRENT_APPLICATION
+  };
+};
+
+export const resetCurrentBusinessPartner = () => {
+  return {
+    type: types.RESET_CURRENT_BUSINESS_PARTNER
+  };
+};
+
+/*
+ BUSINESS PARTNER SEARCH
+ */
+
+export const updateBusinessPartnerSearchResults = (businessPartnerSearchResults) => {
+  return {
+    type: types.UPDATE_BUSINESS_PARTNER_SEARCH_RESULTS,
+    businessPartnerSearchResults
   }
 };

@@ -2,12 +2,14 @@ import React, {Component} from 'react';
 
 import './Search.scss';
 
-class Search extends Component {
+class SearchBox extends Component {
   render() {
     return (
         <div className="dc-search-form">
           <input className="dc-input dc-search-form__input"
-                 onChange={this.props.update}
+                 onChange={(event) => {
+                   return this.props.onChangeAction && this.props.onChangeAction(event)
+                 }}
                  type="search"
                  placeholder="Search..."/>
           <button className="dc-btn dc-search-form__btn">
@@ -18,4 +20,4 @@ class Search extends Component {
   }
 }
 
-export default Search;
+export default SearchBox;

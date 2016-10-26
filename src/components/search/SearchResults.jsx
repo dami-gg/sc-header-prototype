@@ -2,17 +2,25 @@ import React, {Component} from 'react';
 
 import './Search.scss';
 
-class Search extends Component {
+class SearchResults extends Component {
   render() {
     let resultNodes = this.props.results.map((result) => {
       return (
-          <li>{result.name}</li>
+          <li
+              className="dc-suggest__item dc-link"
+              onClick={() => {
+                return this.props.onClickAction && this.props.onClickAction(result);
+              }}
+              key={result.id}
+          >
+            {result.name}
+          </li>
       );
     });
 
     return (
         <div>
-          <ul>
+          <ul className={'dc-list dc-suggest' + (this.props.results.length > 0 ? ' visible' : '')}>
             {resultNodes}
           </ul>
         </div>
@@ -20,4 +28,4 @@ class Search extends Component {
   }
 }
 
-export default Search;
+export default SearchResults;

@@ -5,37 +5,19 @@ import './ServiceProvider.scss';
 
 class ServiceProvider extends Component {
   render() {
-    let productName = 'Solution Center', applicationName = 'Users', filteredValues;
-
-    if (this.props.currentProductId && this.props.currentApplicationId) {
-      filteredValues = this.props.products.filter((product) => {
-        filteredValues = product.applications.filter((application) => {
-          return application.id === this.props.currentApplicationId;
-        });
-
-        if (filteredValues.length > 0) {
-          applicationName = filteredValues[0].name;
-        }
-
-        return !!filteredValues;
-      });
-
-      if (filteredValues.length > 0) {
-        productName = filteredValues[0].name;
-      }
-    }
-
     return (
         <h1 className="dc-h1 centered">
-          {productName}: {applicationName} application
+          {this.props.currentProductName}: {this.props.currentApplicationName} application
         </h1>
     )
   }
 }
 
 const mapStateToProps = (state) => ({
-  currentProductId: state.navigation.currentProduct && state.navigation.currentProduct.id,
-  currentApplicationId: state.navigation.currentApplication && state.navigation.currentApplication.id
+  currentProductName: state.navigation.currentProduct
+      ? state.navigation.currentProduct.name : 'Solution Center',
+  currentApplicationName: state.navigation.currentApplication
+      ? state.navigation.currentApplication.name : 'Users'
 });
 
 export default connect(
