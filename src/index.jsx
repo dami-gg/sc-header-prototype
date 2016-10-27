@@ -19,12 +19,12 @@ var products = [
       id: 1,
       name: 'CMS',
       url: '/cms',
-      businessPartnerType: businessPartnerTypes.BRAND
+      businessPartnerTypes: [businessPartnerTypes.BRAND, businessPartnerTypes.SUPPLIER]
     }, {
       id: 2,
       name: 'Analytics',
       url: '/analytics',
-      businessPartnerType: businessPartnerTypes.BRAND
+      businessPartnerTypes: [businessPartnerTypes.BRAND]
     }]
   },
   {
@@ -34,7 +34,7 @@ var products = [
       id: 3,
       name: 'Coplanner',
       url: '/coplanner',
-      businessPartnerType: businessPartnerTypes.SUPPLIER
+      businessPartnerTypes: [businessPartnerTypes.SUPPLIER]
     }]
   },
   {
@@ -44,12 +44,12 @@ var products = [
       id: 4,
       name: 'Articles',
       url: '/articles',
-      businessPartnerType: businessPartnerTypes.MERCHANT
+      businessPartnerTypes: [businessPartnerTypes.MERCHANT]
     }, {
       id: 5,
       name: 'Orders',
       url: '/orders',
-      businessPartnerType: businessPartnerTypes.MERCHANT
+      businessPartnerTypes: [businessPartnerTypes.MERCHANT]
     }]
   }
 ];
@@ -57,67 +57,59 @@ var products = [
 var userBusinessPartners = [{
   id: 1,
   name: 'Adidas',
-  type: businessPartnerTypes.BRAND
+  types: [businessPartnerTypes.BRAND, businessPartnerTypes.MERCHANT, businessPartnerTypes.SUPPLIER]
 }, {
   id: 2,
   name: 'Nike',
-  type: businessPartnerTypes.BRAND
+  types: [businessPartnerTypes.BRAND, businessPartnerTypes.SUPPLIER]
 }, {
   id: 3,
-  name: 'Merchant 1',
-  type: businessPartnerTypes.MERCHANT
+  name: 'FourFlavor',
+  types: [businessPartnerTypes.MERCHANT]
 }, {
   id: 4,
-  name: 'Merchant 2',
-  type: businessPartnerTypes.MERCHANT
+  name: 'WarehouseOne',
+  types: [businessPartnerTypes.MERCHANT]
 }, {
   id: 5,
-  name: 'Merchant 3',
-  type: businessPartnerTypes.MERCHANT
+  name: 'GREENALITY',
+  types: [businessPartnerTypes.MERCHANT]
 }, {
   id: 6,
-  name: 'Supplier 1',
-  type: businessPartnerTypes.SUPPLIER
+  name: 'Lea Trade Srl',
+  types: [businessPartnerTypes.SUPPLIER]
 }, {
   id: 7,
-  name: 'Supplier 2',
-  type: businessPartnerTypes.SUPPLIER
+  name: 'Hirsch Fashion GmbH',
+  types: [businessPartnerTypes.SUPPLIER]
 }, {
   id: 8,
   name: 'Reebok',
-  type: businessPartnerTypes.BRAND
+  types: [businessPartnerTypes.BRAND]
 }, {
   id: 9,
   name: 'Vans',
-  type: businessPartnerTypes.BRAND
+  types: [businessPartnerTypes.BRAND]
 }, {
   id: 10,
   name: 'Ray-Ban',
-  type: businessPartnerTypes.BRAND
+  types: [businessPartnerTypes.BRAND]
 }, {
   id: 11,
   name: 'Tommy Hilfiger',
-  type: businessPartnerTypes.BRAND
+  types: [businessPartnerTypes.BRAND]
 }, {
   id: 12,
-  name: 'Merchant 4',
-  type: businessPartnerTypes.MERCHANT
+  name: 'Eterna',
+  types: [businessPartnerTypes.MERCHANT]
 }, {
   id: 13,
-  name: 'Merchant 5',
-  type: businessPartnerTypes.MERCHANT
+  name: 'Roberto Collina SRL',
+  types: [businessPartnerTypes.SUPPLIER]
 }, {
   id: 14,
-  name: 'Supplier 3',
-  type: businessPartnerTypes.SUPPLIER
-}, {
-  id: 15,
-  name: 'Supplier 4',
-  type: businessPartnerTypes.SUPPLIER
-}, {
-  id: 16,
-  name: 'Supplier 5',
-  type: businessPartnerTypes.SUPPLIER
+  name: 'fashion4home GmbH',
+  types: [businessPartnerTypes.SUPPLIER]
 }];
 
 var user = {

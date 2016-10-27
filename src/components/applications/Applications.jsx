@@ -39,7 +39,7 @@ class Applications extends Component {
   navigateToApplication(clickedItem) {
     this.props.hideBusinessPartnerMenu();
 
-    // TODO This should be fetched from a BE endpoint which returns the ProductId to which belongs a given ApplicationId
+    // TODO This should be fetched from a BE endpoint which returns the Product to which a given Application belongs
     let result, nextApplication = '', nextProduct;
     nextProduct = this.props.products.filter((product) => {
       result = product.applications.filter((application) => {
@@ -63,10 +63,9 @@ class Applications extends Component {
     // TODO This following code might need to be moved to the constructor of the Header component whenever routing comes
     // into place and it will be possible to initialize the header already from a service provider and not from the Solution Center
 
-    // If when navigating to an application there is no current business partner or if there is but its type is not
-    // among the types managed by the current application we show the business partner menu
-    if (!this.props.currentBusinessPartner ||
-        this.props.currentBusinessPartner.type !== nextApplication.businessPartnerType) {
+    // If when navigating to an application there is no current business partner or if there is but its types are not
+    // among the types managed by that application we show the business partner menu
+    if (!this.isValidBusinessPartnerForApplication(nextApplication, this.props.currentBusinessPartner)) {
       // TODO It must also check if the user has access to that concrete business partner which is carried over in the new application
       this.props.resetCurrentBusinessPartner();
       this.props.showBusinessPartnerMenu();
@@ -74,19 +73,29 @@ class Applications extends Component {
   }
 
   getAccessibleBusinessPartnersInApplication(application) {
-    return application
-        ? this.getBusinessPartnersByType(application.businessPartnerType) : [];
-  }
+    if (!application) {
+      return [];
+    }
 
-  getBusinessPartnersByType(businessPartnerType) {
     return this.props.userBusinessPartners.filter((businessPartner) => {
-      return businessPartner.type === businessPartnerType;
+      return this.isValidBusinessPartnerForApplication(application, businessPartner);
     });
   }
 
   getLastAccessedBusinessPartnersInApplication(application) {
     // TODO This will be fetched from a backend endpoint
-    return this.getAccessibleBusinessPartnersInApplication(application);
+    return this.getAccessibleBusinessPartnersInApplication(application).slice(0, 10);
+  }
+
+  isValidBusinessPartnerForApplication(application, businessPartner) {
+    // TODO This method will also need to check if the businessPartner has access to that application even if the type is valid
+    if (!application || !businessPartner) {
+      return false;
+    }
+
+    return businessPartner.types.filter((type) => {
+          return application.businessPartnerTypes.includes(type);
+        }).length > 0;
   }
 }
 
