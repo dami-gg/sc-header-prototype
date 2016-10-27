@@ -28,4 +28,13 @@ class Menu extends Component {
   }
 }
 
+Menu.propTypes = {
+  menuItems: React.PropTypes.array.isRequired,
+  onClickAction: React.PropTypes.func,
+  onHoverAction: React.PropTypes.func,
+  isSwitcher: React.PropTypes.bool,
+  highlightedItemId: React.PropTypes.number,
+  highlightedClass: React.PropTypes.string
+};
+
 export default Menu;

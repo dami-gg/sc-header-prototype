@@ -12,6 +12,10 @@ class Logo extends Component {
   }
 }
 
+Logo.propTypes = {
+  source: React.PropTypes.string.isRequired
+};
+
 export default Logo;
 
 

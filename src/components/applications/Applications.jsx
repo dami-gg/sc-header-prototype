@@ -99,6 +99,11 @@ class Applications extends Component {
   }
 }
 
+Applications.propTypes = {
+  products: React.PropTypes.array.isRequired,
+  userBusinessPartners: React.PropTypes.array
+};
+
 const mapStateToProps = (state) => ({
   selectedProductId: state.visibility.selectedProduct && state.visibility.selectedProduct.id,
   currentApplicationId: state.navigation.currentApplication && state.navigation.currentApplication.id,

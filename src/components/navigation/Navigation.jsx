@@ -12,13 +12,22 @@ class Navigation extends Component {
     return (
         <div className="navigation dc-row dc-row--collapse dc-row--align-middle dc-row--align-spaced">
           <LogoContainer />
-          <Products products={this.props.products} />
+          <Products
+              products={this.props.products}
+          />
           <BusinessPartner />
-          <UserMenu />
+          <UserMenu
+              user={this.props.user}
+          />
           <HelpSection />
         </div>
     );
   }
 }
+
+Navigation.propTypes = {
+  products: React.PropTypes.array.isRequired,
+  user: React.PropTypes.object.isRequired
+};
 
 export default Navigation;

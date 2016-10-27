@@ -8,12 +8,6 @@ import {
 import Search from '../search/Search';
 
 class BusinessPartnerMenu extends Component {
-  selectBusinessPartner(businessPartner) {
-    this.props.changeCurrentBusinessPartner(businessPartner);
-    this.props.hideBusinessPartnerMenu();
-    this.props.updateBusinessPartnerSearchResults([]);
-  }
-
   render() {
     let lastAccessedNodes = this.props.lastAccessedBusinessPartners.map((item) => {
       return (
@@ -41,6 +35,12 @@ class BusinessPartnerMenu extends Component {
           </ul>
         </div>
     );
+  }
+
+  selectBusinessPartner(businessPartner) {
+    this.props.changeCurrentBusinessPartner(businessPartner);
+    this.props.hideBusinessPartnerMenu();
+    this.props.updateBusinessPartnerSearchResults([]);
   }
 }
 

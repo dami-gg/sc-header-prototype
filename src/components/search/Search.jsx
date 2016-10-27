@@ -12,17 +12,6 @@ class Search extends Component {
     this.props.updateBusinessPartnerSearchResults([]);
   }
 
-  updateResults(event) {
-    let search = event.target.value;
-    let regex = new RegExp(search, "gi");
-
-    let searchResults = this.props.searchableItems.filter((item) => {
-      return regex.test(item.name);
-    });
-
-    this.props.updateBusinessPartnerSearchResults(searchResults);
-  }
-
   render() {
     return (
         <div className="dc-search-form">
@@ -40,7 +29,23 @@ class Search extends Component {
         </div>
     );
   }
+
+  updateResults(event) {
+    let search = event.target.value;
+    let regex = new RegExp(search, "gi");
+
+    let searchResults = this.props.searchableItems.filter((item) => {
+      return regex.test(item.name);
+    });
+
+    this.props.updateBusinessPartnerSearchResults(searchResults);
+  }
 }
+
+Search.propTypes = {
+  searchableItems: React.PropTypes.array.isRequired,
+  onClickAction: React.PropTypes.func
+};
 
 const mapStateToProps = (state) => ({
   searchResults: state.businessPartners.businessPartnerSearchResults

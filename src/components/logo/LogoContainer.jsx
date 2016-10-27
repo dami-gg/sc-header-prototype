@@ -6,7 +6,11 @@ import Logo from './Logo';
 import smallLogo from '../../assets/img/logo--no-text.svg';
 import logo from '../../assets/img/logo.svg';
 import {
-    resetCurrentProduct, resetCurrentApplication, resetCurrentBusinessPartner, hideSubNavigation, hideBusinessPartnerMenu
+    resetCurrentProduct,
+    resetCurrentApplication,
+    resetCurrentBusinessPartner,
+    hideSubNavigation,
+    hideBusinessPartnerMenu
 }
     from '../../actions';
 
@@ -24,7 +28,9 @@ class LogoContainer extends Component {
     return (
         <div className="dc-column dc-column--shrink">
           <div className="logo-container logo-container--mobile">
-            <Logo source={smallLogo}/>
+            <Logo
+                source={smallLogo}
+            />
 
             <div className="menu-toggle">
               <i className="dc-icon dc-icon--interactive dc-icon--menu"></i>
@@ -37,7 +43,9 @@ class LogoContainer extends Component {
                 this.navigateToSolutionCenter()
               }}
           >
-            <Logo source={logo}/>
+            <Logo
+                source={logo}
+            />
           </div>
         </div>
 

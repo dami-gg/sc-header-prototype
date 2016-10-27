@@ -25,6 +25,7 @@ class Header extends Component {
         <header className="solution-center-header">
           <Navigation
               products={this.props.products}
+              user={this.props.user}
           />
           {
             this.showApplicationsSubNavigation() &&
@@ -47,6 +48,12 @@ class Header extends Component {
     );
   }
 }
+
+Header.propTypes = {
+  products: React.PropTypes.array.isRequired,
+  user: React.PropTypes.object.isRequired,
+  userBusinessPartners: React.PropTypes.array
+};
 
 const mapStateToProps = (state) => ({
   applicationsMenuShown: state.visibility.applicationsMenuShown,

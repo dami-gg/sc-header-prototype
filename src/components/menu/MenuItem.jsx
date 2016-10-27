@@ -27,5 +27,14 @@ class MenuItem extends Component {
   }
 }
 
+MenuItem.propTypes = {
+  menuItem: React.PropTypes.object.isRequired,
+  onClickAction: React.PropTypes.func,
+  onHoverAction: React.PropTypes.func,
+  isSwitcher: React.PropTypes.bool,
+  isHighlighted: React.PropTypes.bool,
+  highlightedClass: React.PropTypes.string
+};
+
 export default MenuItem;
 

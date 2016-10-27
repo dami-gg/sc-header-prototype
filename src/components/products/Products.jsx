@@ -49,6 +49,10 @@ class Products extends Component {
   }
 }
 
+Products.propTypes = {
+  products: React.PropTypes.array.isRequired
+};
+
 const mapStateToProps = (state) => ({
   selectedProductId: state.visibility.selectedProduct && state.visibility.selectedProduct.id,
   applicationsMenuShown: state.visibility.applicationsMenuShown,

@@ -26,4 +26,9 @@ class SearchResults extends Component {
   }
 }
 
+SearchResults.propTypes = {
+  searchResults: React.PropTypes.array,
+  onClickAction: React.PropTypes.func
+};
+
 export default SearchResults;

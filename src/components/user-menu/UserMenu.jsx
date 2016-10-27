@@ -12,7 +12,7 @@ class UserMenu extends Component {
                title="User Account"
                onClick={this.props.toggleUserMenu}>
             <span className="user-name">
-              Damián García
+              {this.props.user ? this.props.user.firstName + ' ' + this.props.user.lastName : ''}
             </span>
             <i className="dc-icon dc-icon--user dc-icon--interactive"></i>
           </div>
@@ -20,6 +20,10 @@ class UserMenu extends Component {
     );
   }
 }
+
+UserMenu.propTypes = {
+  user: React.PropTypes.object.isRequired
+};
 
 const mapStateToProps = (state) => ({
   state: state
