@@ -5,25 +5,17 @@ import './BusinessPartner.scss';
 import Menu from '../menu/Menu';
 import {toggleBusinessPartnerMenu} from '../../actions';
 
-let placeholder = {
-  id: -1,
-  name: 'Choose business partner'
-};
-
 class BusinessPartner extends Component {
-  getMenuItem() {
-    return this.props.currentBusinessPartner ? [this.props.currentBusinessPartner] : [placeholder];
-  }
-
   render() {
     return (
         <div className="dc-column dc-column--shrink sc-header__business-partners">
           {
-            // An application must be selected first in all cases before being able to select a business partner
-            this.props.currentApplication &&
+            // The user must be in an application and there should be a selected business partner in order to
+            // show the menu to change it
+            this.props.currentApplication && this.props.currentBusinessPartner &&
             <nav className="navigation--menu">
               <Menu
-                  menuItems={this.getMenuItem()}
+                  menuItems={[this.props.currentBusinessPartner]}
                   onClickAction={this.props.toggleBusinessPartnerMenu}
                   isSwitcher={true}
               />
