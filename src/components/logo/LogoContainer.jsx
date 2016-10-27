@@ -5,7 +5,10 @@ import './Logo.scss';
 import Logo from './Logo';
 import smallLogo from '../../assets/img/logo--no-text.svg';
 import logo from '../../assets/img/logo.svg';
-import {resetCurrentProduct, resetCurrentApplication, resetCurrentBusinessPartner} from '../../actions';
+import {
+    resetCurrentProduct, resetCurrentApplication, resetCurrentBusinessPartner, hideSubNavigation, hideBusinessPartnerMenu
+}
+    from '../../actions';
 
 
 class LogoContainer extends Component {
@@ -13,6 +16,8 @@ class LogoContainer extends Component {
     this.props.resetCurrentBusinessPartner();
     this.props.resetCurrentApplication();
     this.props.resetCurrentProduct();
+    this.props.hideSubNavigation();
+    this.props.hideBusinessPartnerMenu();
   }
 
   render() {
@@ -57,6 +62,14 @@ const mapDispatchToProps = (dispatch) => {
 
     resetCurrentProduct: () => {
       dispatch(resetCurrentProduct());
+    },
+
+    hideSubNavigation: () => {
+      dispatch(hideSubNavigation());
+    },
+
+    hideBusinessPartnerMenu: () => {
+      dispatch(hideBusinessPartnerMenu());
     }
   }
 };

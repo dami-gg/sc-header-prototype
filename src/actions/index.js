@@ -16,6 +16,12 @@ export const toggleUserMenu = () => {
   };
 };
 
+export const hideSubNavigation = () => {
+  return {
+    type: types.HIDE_SUB_NAVIGATION
+  };
+};
+
 export const showBusinessPartnerMenu = () => {
   return {
     type: types.SHOW_BUSINESS_PARTNER_MENU

@@ -4,7 +4,7 @@ const initialState = {
   applicationsMenuShown: false,
   userMenuShown: false,
   selectedProduct: undefined,
-  mobileProductMenuShow: false,
+  mobileProductMenuShown: false,
   businessPartnerMenuShown: false
 };
 
@@ -22,6 +22,13 @@ const visibility = (state = initialState, action) => {
         ...state,
         userMenuShown: !state.userMenuShown,
         applicationsMenuShown: false
+      };
+
+    case types.HIDE_SUB_NAVIGATION:
+      return {
+        ...state,
+        applicationsMenuShown: false,
+        userMenuShown: false
       };
 
     case types.SHOW_BUSINESS_PARTNER_MENU:

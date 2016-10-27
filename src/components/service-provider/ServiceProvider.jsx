@@ -6,9 +6,11 @@ import './ServiceProvider.scss';
 class ServiceProvider extends Component {
   render() {
     return (
-        <h1 className="dc-h1 centered">
-          {this.props.currentProductName}: {this.props.currentApplicationName} application
-        </h1>
+        <div className="service-provider">
+          <h1 className="dc-h1 centered">
+            {this.props.currentProductName}: {this.props.currentApplicationName} application
+          </h1>
+        </div>
     )
   }
 }
