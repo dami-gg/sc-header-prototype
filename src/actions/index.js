@@ -53,6 +53,24 @@ export const resetSelectedProduct = () => {
   }
 };
 
+export const setHelpWidgetAsLoaded = () => {
+  return {
+    type: types.SET_HELP_WIDGET_AS_LOADED
+  }
+};
+
+export const hideHelpWidget = () => {
+  return {
+    type: types.HIDE_HELP_WIDGET
+  }
+};
+
+export const toggleHelpWidget = () => {
+  return {
+    type: types.TOGGLE_HELP_WIDGET
+  }
+};
+
 /*
   NAVIGATION
  */

@@ -11,7 +11,7 @@ import scHeaderReducers from './reducers';
 
 let store = createStore(scHeaderReducers);
 
-var products = [
+let products = [
   {
     id: 1,
     name: 'Content',
@@ -54,7 +54,7 @@ var products = [
   }
 ];
 
-var userBusinessPartners = [{
+let userBusinessPartners = [{
   id: 1,
   name: 'Adidas',
   types: [businessPartnerTypes.BRAND, businessPartnerTypes.MERCHANT, businessPartnerTypes.SUPPLIER]
@@ -112,7 +112,7 @@ var userBusinessPartners = [{
   types: [businessPartnerTypes.SUPPLIER]
 }];
 
-var user = {
+let user = {
   id: 1,
   firstName: 'Chuck',
   lastName: 'Norris',

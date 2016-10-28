@@ -5,7 +5,9 @@ const initialState = {
   userMenuShown: false,
   selectedProduct: undefined,
   mobileProductMenuShown: false,
-  businessPartnerMenuShown: false
+  businessPartnerMenuShown: false,
+  helpWidgetLoaded: false,
+  helpWidgetShown: false
 };
 
 const visibility = (state = initialState, action) => {
@@ -59,6 +61,24 @@ const visibility = (state = initialState, action) => {
       return {
         ...state,
         selectedProduct: undefined
+      };
+
+    case types.SET_HELP_WIDGET_AS_LOADED:
+      return {
+        ...state,
+        helpWidgetLoaded: true
+      };
+
+    case types.HIDE_HELP_WIDGET:
+      return {
+        ...state,
+        helpWidgetShown: false
+      };
+
+    case types.TOGGLE_HELP_WIDGET:
+      return {
+        ...state,
+        helpWidgetShown: !state.helpWidgetShown
       };
 
     default:

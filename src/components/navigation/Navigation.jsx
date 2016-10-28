@@ -19,7 +19,9 @@ class Navigation extends Component {
           <UserMenu
               user={this.props.user}
           />
-          <HelpSection />
+          <HelpSection
+              products={this.props.products}
+          />
         </div>
     );
   }

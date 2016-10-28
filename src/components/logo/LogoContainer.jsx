@@ -10,7 +10,8 @@ import {
     resetCurrentApplication,
     resetCurrentBusinessPartner,
     hideSubNavigation,
-    hideBusinessPartnerMenu
+    hideBusinessPartnerMenu,
+    hideHelpWidget
 }
     from '../../actions';
 
@@ -22,6 +23,7 @@ class LogoContainer extends Component {
     this.props.resetCurrentProduct();
     this.props.hideSubNavigation();
     this.props.hideBusinessPartnerMenu();
+    this.props.hideHelpWidget();
   }
 
   render() {
@@ -78,6 +80,10 @@ const mapDispatchToProps = (dispatch) => {
 
     hideBusinessPartnerMenu: () => {
       dispatch(hideBusinessPartnerMenu());
+    },
+
+    hideHelpWidget: () => {
+      dispatch(hideHelpWidget());
     }
   }
 };
