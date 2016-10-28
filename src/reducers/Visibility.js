@@ -26,13 +26,6 @@ const visibility = (state = initialState, action) => {
         applicationsMenuShown: false
       };
 
-    case types.HIDE_SUB_NAVIGATION:
-      return {
-        ...state,
-        applicationsMenuShown: false,
-        userMenuShown: false
-      };
-
     case types.SHOW_BUSINESS_PARTNER_MENU:
       return {
         ...state,
@@ -79,6 +72,15 @@ const visibility = (state = initialState, action) => {
       return {
         ...state,
         helpWidgetShown: !state.helpWidgetShown
+      };
+
+    case types.HIDE_ALL_MENUS:
+      return {
+        ...state,
+        applicationsMenuShown: false,
+        userMenuShown: false,
+        businessPartnerMenuShown: false,
+        helpWidgetShown: false
       };
 
     default:

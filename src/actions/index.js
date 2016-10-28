@@ -16,12 +16,6 @@ export const toggleUserMenu = () => {
   };
 };
 
-export const hideSubNavigation = () => {
-  return {
-    type: types.HIDE_SUB_NAVIGATION
-  };
-};
-
 export const showBusinessPartnerMenu = () => {
   return {
     type: types.SHOW_BUSINESS_PARTNER_MENU
@@ -68,6 +62,12 @@ export const hideHelpWidget = () => {
 export const toggleHelpWidget = () => {
   return {
     type: types.TOGGLE_HELP_WIDGET
+  }
+};
+
+export const hideAllMenus = () => {
+  return {
+    type: types.HIDE_ALL_MENUS
   }
 };
 
