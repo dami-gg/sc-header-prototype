@@ -6,28 +6,24 @@ import Menu from '../menu/Menu';
 import {toggleApplicationsMenu, changeSelectedProduct, resetSelectedProduct} from '../../actions';
 
 class Products extends Component {
-  toggleMenu(clickedProduct) {
+  switchMenu(clickedProduct) {
+    // If the submenu is opened
+    if (this.props.applicationsMenuShown) {
+      // If the clicked product is the one that was shown, close the submenu
+      if (this.props.selectedProductId === clickedProduct.id) {
+        this.props.toggleApplicationsMenu();
+        this.props.resetSelectedProduct();
+      }
+      // If not, switch to the clicked one
+      else {
+        this.props.changeShownProduct(clickedProduct);
+      }
+    }
+
     // If the submenu is closed, open it and update the shown product
-    if (!this.props.applicationsMenuShown) {
+    else {
       this.props.toggleApplicationsMenu();
       this.props.changeShownProduct(clickedProduct);
-    }
-    // If it is opened, close it only if the clicked product is the one that was shown
-    else if (this.props.selectedProductId === clickedProduct.id) {
-      this.props.toggleApplicationsMenu();
-      this.props.resetSelectedProduct();
-    }
-  }
-
-  switchMenu(hoveredProduct) {
-    // If the submenu is closed, open it and update the shown product
-      if (!this.props.applicationsMenuShown) {
-      this.props.toggleApplicationsMenu();
-      this.props.changeShownProduct(hoveredProduct);
-    }
-    // If it is opened, show another product only if it's a different one
-    else if (this.props.selectedProductId !== hoveredProduct.id) {
-      this.props.changeShownProduct(hoveredProduct);
     }
   }
 
@@ -37,8 +33,7 @@ class Products extends Component {
           <nav className="navigation--menu">
             <Menu
                 menuItems={this.props.products}
-                onClickAction={this.toggleMenu.bind(this)}
-                onHoverAction={this.switchMenu.bind(this)}
+                onClickAction={this.switchMenu.bind(this)}
                 isSwitcher={true}
                 highlightedItemId={this.props.currentProductId}
                 highlightedClass={'bold'}
