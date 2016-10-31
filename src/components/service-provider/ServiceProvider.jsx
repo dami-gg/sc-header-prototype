@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 import './ServiceProvider.scss';
+import analyticsPlaceholder from '../../assets/img/analytics-placeholder.png';
 
 class ServiceProvider extends Component {
   render() {
@@ -10,6 +11,10 @@ class ServiceProvider extends Component {
           <h1 className="dc-h1 centered">
             {this.props.currentProductName}: {this.props.currentApplicationName} application
           </h1>
+          {
+            this.props.currentApplicationName === 'Analytics' &&
+            <img src={analyticsPlaceholder} role="presentation" />
+          }
         </div>
     )
   }
