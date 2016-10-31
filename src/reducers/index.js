@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
-import visibility from './Visibility';
-import navigation from './Navigation';
-import businessPartners from './BusinessPartners';
+import visibility from './visibility';
+import navigation from './navigation';
+import businessPartners from './business-partners';
 
 const scHeaderReducers = combineReducers({
   visibility,
