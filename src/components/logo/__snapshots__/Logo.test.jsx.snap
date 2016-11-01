@@ -1,0 +1,8 @@
+exports[`Logo component should render correctly 1`] = `
+<div
+  className="logo">
+  <img
+    alt="Logo"
+    src="source" />
+</div>
+`;

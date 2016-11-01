@@ -7,7 +7,7 @@ import Applications from '../applications/Applications';
 import UserMenuOptions from '../user-menu/UserMenuOptions';
 import BusinessPartnerMenu from '../business-partner-menu/BusinessPartnerMenu';
 
-class Header extends Component {
+export class Header extends Component {
   showApplicationsSubNavigation() {
     return this.props.applicationsMenuShown;
   }

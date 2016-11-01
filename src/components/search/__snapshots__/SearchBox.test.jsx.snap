@@ -1,0 +1,6 @@
+exports[`SearchBox component should render correctly 1`] = `
+<input
+  className="dc-input dc-search-form__input"
+  onChange={[Function onChange]}
+  placeholder="Search..." />
+`;

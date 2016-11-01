@@ -1,0 +1,7 @@
+exports[`SearchButton component should render correctly 1`] = `
+<button
+  className="dc-btn dc-search-form__btn">
+  <i
+    className="dc-icon dc-icon--search dc-icon--interactive" />
+</button>
+`;

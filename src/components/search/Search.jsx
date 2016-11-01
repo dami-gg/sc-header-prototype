@@ -7,7 +7,7 @@ import SearchResults from './SearchResults';
 import SearchButton from './SearchButton';
 import {updateBusinessPartnerSearchResults} from '../../actions';
 
-class Search extends Component {
+export class Search extends Component {
   componentWillMount() {
     this.props.updateBusinessPartnerSearchResults([]);
   }

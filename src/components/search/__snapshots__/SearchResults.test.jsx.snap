@@ -1,0 +1,15 @@
+exports[`SearchResults component should render correctly 1`] = `
+<ul
+  className="dc-list dc-suggest visible">
+  <li
+    className="dc-suggest__item dc-link"
+    onClick={[Function onClick]}>
+    Result 1
+  </li>
+  <li
+    className="dc-suggest__item dc-link"
+    onClick={[Function onClick]}>
+    Result 2
+  </li>
+</ul>
+`;
